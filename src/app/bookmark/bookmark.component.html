@@ -1,0 +1,41 @@
+<nb-layout>
+  <nb-layout-header fixed>
+    <!-- Insert header here -->
+   
+   
+    <button nbButton  outline  status="warning" class="Home_btn" ><a routerLink="/">Home</a></button>
+    <a class= Title>BOOKMARKED MOVIES</a>
+      
+    </nb-layout-header>
+<nb-layout-column>
+
+    <h3 *ngIf="!BookMarkedMovies[0]" class="Nothing_found" ><strong>No BookMarks Found!!!!!</strong></h3>
+    <img src="assets/Nothing_found.png" alt="Paris" class="center" *ngIf="!BookMarkedMovies[0]">
+    <nb-card size="small"  *ngFor="let data of BookMarkedMovies">
+   
+    <div class='checkoutProduct'  >
+      <img class='checkoutProduct__image' [src]="data.Poster" />
+  
+      <div class='checkoutProduct__info'>
+          <p class='checkoutProduct__title'><strong>Title: {{data.Title}}</strong></p>
+          <p class="checkoutProduct__price">
+          Rating: {{data.Ratings}}
+          </p>
+          <p class="checkoutProduct__Released">
+          Released: {{data.Released}}
+        </p>
+          <div class="checkoutProduct__rating">
+              
+          </div>
+          </div>
+          </div>
+          </nb-card>
+        </nb-layout-column>
+    </nb-layout>
+         
+       
+       
+       
+            
+        
+   

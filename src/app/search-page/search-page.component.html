@@ -1,0 +1,51 @@
+<nb-layout>
+
+    <nb-layout-header fixed>
+    <!-- Insert header here -->
+   
+    <input  nbInput fullWidth fieldSize="medium"shape="round" placeholder="Search Movie here " [(ngModel)]="name" >
+    <button nbButton  outline  status="success" class="Search_btn" (click)="showMovies()">Search</button>
+    <button nbButton  outline  status="warning" class="Search_btn" ><a routerLink="/BookMarked">BookMarked Movies </a></button>
+      
+    </nb-layout-header>
+  <nb-layout-column>
+    <img src="assets/Front_page.png" alt="Paris" class="center" *ngIf="!data">
+    <nb-card size="large" *ngIf="data">
+    
+      <div class='checkoutProduct' *ngIf="data">
+        <img class='checkoutProduct__image' [src]="data.Poster" />
+    
+        <div class='checkoutProduct__info'>
+            <p class='checkoutProduct__title'><strong>Title: {{data.Title}}</strong></p>
+            <p class="checkoutProduct__price">
+             Rating: {{data.Ratings}}
+            </p>
+            <p class="checkoutProduct__Released">
+             Released: {{data.Released}}
+            </p>
+            <div class="checkoutProduct__rating">
+                
+            </div>
+          
+          <div *ngIf="!data.Bookmark">
+            <button nbButton status="success" (click)="FavMovie(data)" >Bookmark</button>
+          </div>
+          <div *ngIf="data.Bookmark">
+            <button nbButton status="warning" (click)="FavMovie(data)" >Bookmarked</button>
+          </div>
+        
+        
+              
+          
+        </div>
+    
+     </div>
+    </nb-card>
+  
+   
+      
+    </nb-layout-column>
+
+  
+  </nb-layout>
+
